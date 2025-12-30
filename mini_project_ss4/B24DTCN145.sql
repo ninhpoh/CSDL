@@ -54,7 +54,20 @@ VALUES
 ( '1', '102', '2024-09-15', '2024-09-25'),
 ( '2', '103','2024-09-18',null);
 
+UPDATE Borrow
+SET return_date = '2024-10-01'
+WHERE reader_id = 1;
 
+UPDATE Book
+SET publish_year = 2023
+WHERE publish_year >= 2021;
+
+DELETE FROM Borrow
+WHERE borrow_date < '2024-09-18';
+
+SELECT * FROM Reader;
+SELECT * FROM Book;
+SELECT * FROM Borrow;
 
 
 
