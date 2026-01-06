@@ -38,6 +38,8 @@ FROM orders
 GROUP BY customer_id
 HAVING COUNT(order_id) > 1;
 
-SELECT DISTINCT c.customer_id, c.full_name, c.city
+SELECT c.customer_id, c.full_name, c.city
 FROM customers c
-JOIN orders o ON c.customer_id = o.customer_id;
+JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.full_name, c.city
+HAVING COUNT(o.order_id) > 1;
